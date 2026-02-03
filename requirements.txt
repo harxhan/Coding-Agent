@@ -1,0 +1,6 @@
+tree_sitter>=0.25.0
+tree_sitter_python>=0.23.0
+fastapi
+uvicorn
+ollama
+pathspec

@@ -1,0 +1,661 @@
+{
+    "repo_id": "habit-tracker-backend",
+    "root_path": "app-Backend",
+    "metadata": {
+        "language": "python",
+        "python_version": "3.13",
+        "external_dependencies": [],
+        "app_type": null,
+        "entrypoint_style": [],
+        "frameworks": [],
+        "secondary_frameworks": [],
+        "summary": null
+    },
+    "codebase": {
+        "folders": [
+            {
+                "path": "./",
+                "files": [
+                    "main.py"
+                ],
+                "summary": null,
+                "responsibilities": []
+            },
+            {
+                "path": "database\\models/",
+                "files": [
+                    "activity.py",
+                    "activity_log.py",
+                    "base.py",
+                    "habit.py",
+                    "__init__.py"
+                ],
+                "summary": null,
+                "responsibilities": []
+            },
+            {
+                "path": "database\\utils/",
+                "files": [
+                    "deps.py",
+                    "session.py"
+                ],
+                "summary": null,
+                "responsibilities": []
+            },
+            {
+                "path": "pydantic_schemas/",
+                "files": [
+                    "requests.py",
+                    "responses.py"
+                ],
+                "summary": null,
+                "responsibilities": []
+            },
+            {
+                "path": "routes/",
+                "files": [
+                    "activities.py",
+                    "habits.py"
+                ],
+                "summary": null,
+                "responsibilities": []
+            }
+        ],
+        "files": [
+            {
+                "path": "database\\models\\activity.py",
+                "imports": {
+                    "internal": [],
+                    "external": [
+                        "os",
+                        "uuid"
+                    ]
+                },
+                "entry_points": [],
+                "classes": [
+                    {
+                        "name": "Activity",
+                        "qualified_name": "database\\models\\activity.Activity",
+                        "symbol_type": "class",
+                        "class_type": null,
+                        "class_inherits_from": [],
+                        "class_methods": [],
+                        "code_range": {
+                            "start_line": 16,
+                            "end_line": 26
+                        },
+                        "summary": null
+                    }
+                ],
+                "functions": [],
+                "summary": null
+            },
+            {
+                "path": "database\\models\\activity_log.py",
+                "imports": {
+                    "internal": [],
+                    "external": [
+                        "os"
+                    ]
+                },
+                "entry_points": [],
+                "classes": [
+                    {
+                        "name": "ActivityLog",
+                        "qualified_name": "database\\models\\activity_log.ActivityLog",
+                        "symbol_type": "class",
+                        "class_type": null,
+                        "class_inherits_from": [],
+                        "class_methods": [],
+                        "code_range": {
+                            "start_line": 14,
+                            "end_line": 19
+                        },
+                        "summary": null
+                    }
+                ],
+                "functions": [],
+                "summary": null
+            },
+            {
+                "path": "database\\models\\habit.py",
+                "imports": {
+                    "internal": [],
+                    "external": [
+                        "os",
+                        "uuid"
+                    ]
+                },
+                "entry_points": [],
+                "classes": [
+                    {
+                        "name": "Habit",
+                        "qualified_name": "database\\models\\habit.Habit",
+                        "symbol_type": "class",
+                        "class_type": null,
+                        "class_inherits_from": [],
+                        "class_methods": [],
+                        "code_range": {
+                            "start_line": 16,
+                            "end_line": 29
+                        },
+                        "summary": null
+                    }
+                ],
+                "functions": [],
+                "summary": null
+            },
+            {
+                "path": "database\\utils\\deps.py",
+                "imports": {
+                    "internal": [],
+                    "external": []
+                },
+                "entry_points": [],
+                "classes": [],
+                "functions": [
+                    {
+                        "name": "get_db",
+                        "qualified_name": "database\\utils\\deps.get_db",
+                        "symbol_type": "function",
+                        "async": false,
+                        "calls": [
+                            "SessionLocal"
+                        ],
+                        "called_by": [],
+                        "used_as_callback_by": [],
+                        "control_flow": [
+                            {
+                                "type": "try",
+                                "code_range": {
+                                    "start_line": 5,
+                                    "end_line": 8
+                                },
+                                "purpose": null
+                            }
+                        ],
+                        "code_range": {
+                            "start_line": 3,
+                            "end_line": 8
+                        },
+                        "summary": null
+                    }
+                ],
+                "summary": null
+            },
+            {
+                "path": "pydantic_schemas\\requests.py",
+                "imports": {
+                    "internal": [],
+                    "external": []
+                },
+                "entry_points": [],
+                "classes": [
+                    {
+                        "name": "ActivityCreate",
+                        "qualified_name": "pydantic_schemas\\requests.ActivityCreate",
+                        "symbol_type": "class",
+                        "class_type": null,
+                        "class_inherits_from": [],
+                        "class_methods": [],
+                        "code_range": {
+                            "start_line": 6,
+                            "end_line": 9
+                        },
+                        "summary": null
+                    },
+                    {
+                        "name": "ActivityUpdate",
+                        "qualified_name": "pydantic_schemas\\requests.ActivityUpdate",
+                        "symbol_type": "class",
+                        "class_type": null,
+                        "class_inherits_from": [],
+                        "class_methods": [],
+                        "code_range": {
+                            "start_line": 11,
+                            "end_line": 14
+                        },
+                        "summary": null
+                    },
+                    {
+                        "name": "HabitCreate",
+                        "qualified_name": "pydantic_schemas\\requests.HabitCreate",
+                        "symbol_type": "class",
+                        "class_type": null,
+                        "class_inherits_from": [],
+                        "class_methods": [],
+                        "code_range": {
+                            "start_line": 16,
+                            "end_line": 20
+                        },
+                        "summary": null
+                    },
+                    {
+                        "name": "HabitUpdate",
+                        "qualified_name": "pydantic_schemas\\requests.HabitUpdate",
+                        "symbol_type": "class",
+                        "class_type": null,
+                        "class_inherits_from": [],
+                        "class_methods": [],
+                        "code_range": {
+                            "start_line": 22,
+                            "end_line": 25
+                        },
+                        "summary": null
+                    },
+                    {
+                        "name": "ActivityLogCreate",
+                        "qualified_name": "pydantic_schemas\\requests.ActivityLogCreate",
+                        "symbol_type": "class",
+                        "class_type": null,
+                        "class_inherits_from": [],
+                        "class_methods": [],
+                        "code_range": {
+                            "start_line": 27,
+                            "end_line": 28
+                        },
+                        "summary": null
+                    }
+                ],
+                "functions": [],
+                "summary": null
+            },
+            {
+                "path": "pydantic_schemas\\responses.py",
+                "imports": {
+                    "internal": [],
+                    "external": []
+                },
+                "entry_points": [],
+                "classes": [
+                    {
+                        "name": "HabitInsertionResponse",
+                        "qualified_name": "pydantic_schemas\\responses.HabitInsertionResponse",
+                        "symbol_type": "class",
+                        "class_type": null,
+                        "class_inherits_from": [],
+                        "class_methods": [],
+                        "code_range": {
+                            "start_line": 9,
+                            "end_line": 12
+                        },
+                        "summary": null
+                    },
+                    {
+                        "name": "ActivityResponse",
+                        "qualified_name": "pydantic_schemas\\responses.ActivityResponse",
+                        "symbol_type": "class",
+                        "class_type": null,
+                        "class_inherits_from": [],
+                        "class_methods": [],
+                        "code_range": {
+                            "start_line": 14,
+                            "end_line": 20
+                        },
+                        "summary": null
+                    },
+                    {
+                        "name": "HabitResponse",
+                        "qualified_name": "pydantic_schemas\\responses.HabitResponse",
+                        "symbol_type": "class",
+                        "class_type": null,
+                        "class_inherits_from": [],
+                        "class_methods": [],
+                        "code_range": {
+                            "start_line": 22,
+                            "end_line": 29
+                        },
+                        "summary": null
+                    },
+                    {
+                        "name": "ActivityLogView",
+                        "qualified_name": "pydantic_schemas\\responses.ActivityLogView",
+                        "symbol_type": "class",
+                        "class_type": null,
+                        "class_inherits_from": [],
+                        "class_methods": [],
+                        "code_range": {
+                            "start_line": 31,
+                            "end_line": 36
+                        },
+                        "summary": null
+                    }
+                ],
+                "functions": [],
+                "summary": null
+            },
+            {
+                "path": "routes\\activities.py",
+                "imports": {
+                    "internal": [],
+                    "external": []
+                },
+                "entry_points": [],
+                "classes": [],
+                "functions": [
+                    {
+                        "name": "get_activity_logs_by_habit",
+                        "qualified_name": "routes\\activities.get_activity_logs_by_habit",
+                        "symbol_type": "function",
+                        "async": false,
+                        "calls": [
+                            "Depends"
+                        ],
+                        "called_by": [],
+                        "used_as_callback_by": [
+                            {
+                                "used_by": "Activity",
+                                "confidence": "static",
+                                "reason": "Passed as identifier"
+                            },
+                            {
+                                "used_by": "get_db",
+                                "confidence": "static",
+                                "reason": "Passed as identifier"
+                            },
+                            {
+                                "used_by": "Habit",
+                                "confidence": "static",
+                                "reason": "Passed as identifier"
+                            }
+                        ],
+                        "control_flow": [],
+                        "code_range": {
+                            "start_line": 19,
+                            "end_line": 38
+                        },
+                        "summary": null
+                    },
+                    {
+                        "name": "create_activity_log",
+                        "qualified_name": "routes\\activities.create_activity_log",
+                        "symbol_type": "function",
+                        "async": false,
+                        "calls": [
+                            "ActivityLog",
+                            "Depends",
+                            "HTTPException"
+                        ],
+                        "called_by": [],
+                        "used_as_callback_by": [
+                            {
+                                "used_by": "Activity",
+                                "confidence": "static",
+                                "reason": "Passed as identifier"
+                            },
+                            {
+                                "used_by": "get_db",
+                                "confidence": "static",
+                                "reason": "Passed as identifier"
+                            },
+                            {
+                                "used_by": "log",
+                                "confidence": "static",
+                                "reason": "Passed as identifier"
+                            }
+                        ],
+                        "control_flow": [
+                            {
+                                "type": "if",
+                                "code_range": {
+                                    "start_line": 48,
+                                    "end_line": 49
+                                },
+                                "purpose": null
+                            }
+                        ],
+                        "code_range": {
+                            "start_line": 41,
+                            "end_line": 59
+                        },
+                        "summary": null
+                    },
+                    {
+                        "name": "update_activity",
+                        "qualified_name": "routes\\activities.update_activity",
+                        "symbol_type": "function",
+                        "async": false,
+                        "calls": [
+                            "setattr",
+                            "Depends",
+                            "HTTPException"
+                        ],
+                        "called_by": [],
+                        "used_as_callback_by": [
+                            {
+                                "used_by": "get_db",
+                                "confidence": "static",
+                                "reason": "Passed as identifier"
+                            },
+                            {
+                                "used_by": "field",
+                                "confidence": "static",
+                                "reason": "Passed as identifier"
+                            },
+                            {
+                                "used_by": "value",
+                                "confidence": "static",
+                                "reason": "Passed as identifier"
+                            },
+                            {
+                                "used_by": "Activity",
+                                "confidence": "static",
+                                "reason": "Passed as identifier"
+                            },
+                            {
+                                "used_by": "activity",
+                                "confidence": "static",
+                                "reason": "Passed as identifier"
+                            }
+                        ],
+                        "control_flow": [
+                            {
+                                "type": "if",
+                                "code_range": {
+                                    "start_line": 69,
+                                    "end_line": 70
+                                },
+                                "purpose": null
+                            }
+                        ],
+                        "code_range": {
+                            "start_line": 62,
+                            "end_line": 78
+                        },
+                        "summary": null
+                    }
+                ],
+                "summary": null
+            },
+            {
+                "path": "routes\\habits.py",
+                "imports": {
+                    "internal": [],
+                    "external": []
+                },
+                "entry_points": [],
+                "classes": [],
+                "functions": [
+                    {
+                        "name": "get_all_habits",
+                        "qualified_name": "routes\\habits.get_all_habits",
+                        "symbol_type": "function",
+                        "async": false,
+                        "calls": [
+                            "Depends",
+                            "joinedload"
+                        ],
+                        "called_by": [],
+                        "used_as_callback_by": [
+                            {
+                                "used_by": "get_db",
+                                "confidence": "static",
+                                "reason": "Passed as identifier"
+                            },
+                            {
+                                "used_by": "Habit",
+                                "confidence": "static",
+                                "reason": "Passed as identifier"
+                            }
+                        ],
+                        "control_flow": [],
+                        "code_range": {
+                            "start_line": 19,
+                            "end_line": 26
+                        },
+                        "summary": null
+                    },
+                    {
+                        "name": "create_habit",
+                        "qualified_name": "routes\\habits.create_habit",
+                        "symbol_type": "function",
+                        "async": false,
+                        "calls": [
+                            "str",
+                            "Activity",
+                            "Depends",
+                            "Habit",
+                            "HTTPException"
+                        ],
+                        "called_by": [],
+                        "used_as_callback_by": [
+                            {
+                                "used_by": "get_db",
+                                "confidence": "static",
+                                "reason": "Passed as identifier"
+                            },
+                            {
+                                "used_by": "activity",
+                                "confidence": "static",
+                                "reason": "Passed as identifier"
+                            },
+                            {
+                                "used_by": "e",
+                                "confidence": "static",
+                                "reason": "Passed as identifier"
+                            },
+                            {
+                                "used_by": "habit",
+                                "confidence": "static",
+                                "reason": "Passed as identifier"
+                            }
+                        ],
+                        "control_flow": [
+                            {
+                                "type": "try",
+                                "code_range": {
+                                    "start_line": 31,
+                                    "end_line": 57
+                                },
+                                "purpose": null
+                            }
+                        ],
+                        "code_range": {
+                            "start_line": 30,
+                            "end_line": 57
+                        },
+                        "summary": null
+                    },
+                    {
+                        "name": "update_habit",
+                        "qualified_name": "routes\\habits.update_habit",
+                        "symbol_type": "function",
+                        "async": false,
+                        "calls": [
+                            "setattr",
+                            "Depends",
+                            "HTTPException"
+                        ],
+                        "called_by": [],
+                        "used_as_callback_by": [
+                            {
+                                "used_by": "get_db",
+                                "confidence": "static",
+                                "reason": "Passed as identifier"
+                            },
+                            {
+                                "used_by": "field",
+                                "confidence": "static",
+                                "reason": "Passed as identifier"
+                            },
+                            {
+                                "used_by": "value",
+                                "confidence": "static",
+                                "reason": "Passed as identifier"
+                            },
+                            {
+                                "used_by": "habit",
+                                "confidence": "static",
+                                "reason": "Passed as identifier"
+                            },
+                            {
+                                "used_by": "Habit",
+                                "confidence": "static",
+                                "reason": "Passed as identifier"
+                            }
+                        ],
+                        "control_flow": [
+                            {
+                                "type": "if",
+                                "code_range": {
+                                    "start_line": 68,
+                                    "end_line": 69
+                                },
+                                "purpose": null
+                            }
+                        ],
+                        "code_range": {
+                            "start_line": 61,
+                            "end_line": 77
+                        },
+                        "summary": null
+                    },
+                    {
+                        "name": "delete_habit",
+                        "qualified_name": "routes\\habits.delete_habit",
+                        "symbol_type": "function",
+                        "async": false,
+                        "calls": [
+                            "Depends",
+                            "HTTPException"
+                        ],
+                        "called_by": [],
+                        "used_as_callback_by": [
+                            {
+                                "used_by": "get_db",
+                                "confidence": "static",
+                                "reason": "Passed as identifier"
+                            },
+                            {
+                                "used_by": "Habit",
+                                "confidence": "static",
+                                "reason": "Passed as identifier"
+                            },
+                            {
+                                "used_by": "habit",
+                                "confidence": "static",
+                                "reason": "Passed as identifier"
+                            }
+                        ],
+                        "control_flow": [
+                            {
+                                "type": "if",
+                                "code_range": {
+                                    "start_line": 84,
+                                    "end_line": 88
+                                },
+                                "purpose": null
+                            }
+                        ],
+                        "code_range": {
+                            "start_line": 81,
+                            "end_line": 93
+                        },
+                        "summary": null
+                    }
+                ],
+                "summary": null
+            }
+        ]
+    }
+}
